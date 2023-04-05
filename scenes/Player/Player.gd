@@ -15,6 +15,29 @@ func _physics_process(_delta):
 	else:
 		velocity_component.decelerate()
 
-	velocity = gravity_component.apply(velocity_component.velocity)
+	# Apply gravity to the velocity component.
+	if is_on_floor():
+		velocity_component.velocity.y = 0
+	else:
+		velocity_component.velocity = gravity_component.apply(velocity_component.velocity, get_gravity_weight() )
+
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity_component.velocity.y = velocity_component.velocity.y - 130 # 4 Squares
+
+	velocity = velocity_component.velocity
 
 	move_and_slide()
+
+
+func get_gravity_weight():
+	if is_on_floor():
+		return 0
+
+	if Input.is_action_pressed("jump"): # Jumping
+		if velocity.y < 0: # Going Up:
+			return 0.3
+	else:
+		if velocity.y < 0: # Going Up:
+			return 2 # Cut
+
+	return 1
