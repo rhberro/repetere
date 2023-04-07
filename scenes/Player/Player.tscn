@@ -1,18 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://61xgg4lbvejl"]
+[gd_scene load_steps=8 format=3 uid="uid://61xgg4lbvejl"]
 
 [ext_resource type="PackedScene" uid="uid://bwuxr231sdmkc" path="res://components/VelocityComponent/VelocityComponent.tscn" id="1_gy152"]
 [ext_resource type="Script" path="res://scenes/Player/Player.gd" id="1_ynjh7"]
 [ext_resource type="PackedScene" uid="uid://cl4l70y4smatl" path="res://components/GravityComponent/GravityComponent.tscn" id="3_4yi37"]
+[ext_resource type="PackedScene" uid="uid://ckrcn60x4ti4l" path="res://components/HealthComponent/HealthComponent.tscn" id="4_uoskk"]
+[ext_resource type="PackedScene" uid="uid://gumjnctvy6ov" path="res://components/HurtboxComponent/HurtboxComponent.tscn" id="5_0djyq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bexd1"]
+size = Vector2(6, 6)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1fasb"]
 radius = 4.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_ynjh7")
 
 [node name="GravityComponent" parent="." instance=ExtResource("3_4yi37")]
 
 [node name="VelocityComponent" parent="." instance=ExtResource("1_gy152")]
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_uoskk")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
@@ -26,6 +33,14 @@ offset_right = 4.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_0djyq")]
+collision_layer = 2
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("RectangleShape2D_bexd1")
+debug_color = Color(0.701961, 0, 0.0117647, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1fasb")

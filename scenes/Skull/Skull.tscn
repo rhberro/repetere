@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://btmk0i7d5gxn0"]
+
+[ext_resource type="PackedScene" uid="uid://cl4l70y4smatl" path="res://components/GravityComponent/GravityComponent.tscn" id="1_36a2a"]
+[ext_resource type="Script" path="res://scenes/Skull/Skull.gd" id="1_qsfuf"]
+[ext_resource type="PackedScene" uid="uid://bwuxr231sdmkc" path="res://components/VelocityComponent/VelocityComponent.tscn" id="2_rcx2l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67yin"]
+size = Vector2(8, 8)
+
+[node name="Skull" type="StaticBody2D"]
+script = ExtResource("1_qsfuf")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_rcx2l")]
+
+[node name="GravityComponent" parent="." instance=ExtResource("1_36a2a")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_67yin")
