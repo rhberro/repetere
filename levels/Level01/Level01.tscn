@@ -25,7 +25,7 @@ layer_1/tile_data = PackedInt32Array()
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_fupj6")]
-position = Vector2(504, 104)
+position = Vector2(8, 8)
 
 [node name="Node" type="Node" parent="."]
 
