@@ -12,11 +12,11 @@ func _ready():
 		hitbox_component.body_entered.connect(_on_body_entered)
 
 
-func _on_area_entered(area: Area2D):
+func _on_area_entered(_area: Area2D):
 	queue_free()
 
 
-func _on_body_entered(body: TileMap):
+func _on_body_entered(_body: TileMap):
 	queue_free()
 
 

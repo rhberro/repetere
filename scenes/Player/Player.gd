@@ -31,7 +31,7 @@ func _on_died():
 	get_tree().current_scene.call_deferred("add_child", skull_instance)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Movement
 	var direction = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
 	if direction:

@@ -23,11 +23,12 @@ func _ready():
 func _on_timer_timeout():
 	timer.stop()
 
-	animation_player.animation_finished.connect(_on_animation_finished)
+	if not animation_player.animation_finished.is_connected(_on_animation_finished):
+		animation_player.animation_finished.connect(_on_animation_finished)
 	animation_player.play("Load")
 
 
-func _on_animation_finished(animation_name: StringName):
+func _on_animation_finished(_animation_name: StringName):
 	animation_player.stop()
 
 	timer.wait_time = _get_wait_time()
@@ -42,7 +43,7 @@ func _on_animation_finished(animation_name: StringName):
 
 
 func _get_delay_time():
-	return max(delay - animation_player.get_animation("Load").length, 0)
+	return max(delay - animation_player.get_animation("Load").length, 0.5)
 
 
 func _get_wait_time():

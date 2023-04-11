@@ -3,15 +3,15 @@ extends Camera2D
 @export
 var target: Node2D = null
 
-var viewport_width: int = ProjectSettings.get_setting('display/window/size/viewport_width')
+var viewport_width: float = ProjectSettings.get_setting('display/window/size/viewport_width')
 
-var viewport_height: int = ProjectSettings.get_setting('display/window/size/viewport_height')
+var viewport_height: float = ProjectSettings.get_setting('display/window/size/viewport_height')
 
 func _ready():
 	set_offset(
 		Vector2(
-			floori(viewport_width / 2),
-			floori(viewport_height / 2)
+			viewport_width / 2,
+			viewport_height / 2
 		)
 	)
 
