@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://cqcq7v0fphoaq"]
+
+[ext_resource type="Texture2D" uid="uid://2ymcdjsrfr6e" path="res://scenes/Arrow/Arrow.png" id="1_5v08p"]
+[ext_resource type="PackedScene" uid="uid://bwuxr231sdmkc" path="res://components/VelocityComponent/VelocityComponent.tscn" id="1_7c33b"]
+[ext_resource type="Script" path="res://scenes/Arrow/Arrow.gd" id="1_54owu"]
+[ext_resource type="PackedScene" uid="uid://d108drtlvdam1" path="res://components/HitboxComponent/HitboxComponent.tscn" id="2_m4r67"]
+
+[sub_resource type="Animation" id="Animation_svai1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(2.08165e-12, 2.08165e-12, 8, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_8qsvn"]
+resource_name = "Rotating"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Rect2(2.08165e-12, 2.08165e-12, 8, 8), Rect2(8, 2.08165e-12, 8, 8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_00kdc"]
+_data = {
+"RESET": SubResource("Animation_svai1"),
+"Rotating": SubResource("Animation_8qsvn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2x3f1"]
+size = Vector2(8, 1)
+
+[node name="Arrow" type="Node2D"]
+script = ExtResource("1_54owu")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("1_7c33b")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5v08p")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 8, 8)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Rotating"
+libraries = {
+"": SubResource("AnimationLibrary_00kdc")
+}
+
+[node name="HitboxComponent" parent="." instance=ExtResource("2_m4r67")]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_2x3f1")

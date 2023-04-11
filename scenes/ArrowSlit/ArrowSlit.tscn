@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://bauf786e2cv3n"]
+
+[ext_resource type="Texture2D" uid="uid://dnnqk5x5co2xd" path="res://scenes/ArrowSlit/ArrowSlit.png" id="1_4kf8c"]
+[ext_resource type="Script" path="res://scenes/ArrowSlit/ArrowSlit.gd" id="1_jrcko"]
+
+[sub_resource type="Animation" id="Animation_5lxsu"]
+resource_name = "Load"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(2.08165e-12, 2.08165e-12, 8, 8), Rect2(8, 2.08165e-12, 8, 8), Rect2(16, 2.08165e-12, 8, 8), Rect2(24, 2.08165e-12, 8, 8), Rect2(32, 2.08165e-12, 8, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_pp5sp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(2.08165e-12, 2.08165e-12, 8, 8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iyf1g"]
+_data = {
+"Load": SubResource("Animation_5lxsu"),
+"RESET": SubResource("Animation_pp5sp")
+}
+
+[node name="ArrowSlit" type="Node2D"]
+script = ExtResource("1_jrcko")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4kf8c")
+region_enabled = true
+region_rect = Rect2(2.08165e-12, 2.08165e-12, 8, 8)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iyf1g")
+}
+
+[node name="Timer" type="Timer" parent="."]

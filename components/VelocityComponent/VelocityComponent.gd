@@ -1,7 +1,7 @@
 class_name VelocityComponent extends Node
 
 @export
-var speed: float = 80.0
+var speed: float = 65.0
 
 var velocity: Vector2 = Vector2.ZERO
 

@@ -47,7 +47,7 @@ func _physics_process(delta):
 
 	# Jumping
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity_component.velocity.y = velocity_component.velocity.y - 180
+		velocity_component.velocity.y = velocity_component.velocity.y - 170
 
 	velocity = velocity_component.velocity
 

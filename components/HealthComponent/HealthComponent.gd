@@ -16,7 +16,7 @@ func _ready():
 
 func take_damage(damage: int):
 	# Died
-	if health - damage < 1:
+	if health - damage == 0:
 		_on_died.emit()
 
 	health = health - damage
