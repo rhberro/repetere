@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxav07fa3miys"]
+[gd_scene load_steps=6 format=3 uid="uid://cxav07fa3miys"]
 
 [ext_resource type="PackedScene" uid="uid://61xgg4lbvejl" path="res://scenes/Player/Player.tscn" id="1_fupj6"]
 [ext_resource type="TileSet" uid="uid://cibeigu46hm5" path="res://Tileset.tres" id="1_pio0b"]
 [ext_resource type="PackedScene" uid="uid://70fusl8inlpf" path="res://scenes/Camera/Camera.tscn" id="2_hj5vx"]
 [ext_resource type="PackedScene" uid="uid://bauf786e2cv3n" path="res://scenes/ArrowSlit/ArrowSlit.tscn" id="5_bb8hi"]
+[ext_resource type="PackedScene" uid="uid://bh6iv277qtmao" path="res://scenes/GoldCoin/GoldCoin.tscn" id="5_bw3x4"]
 
 [node name="Level01" type="Node2D"]
 
@@ -27,7 +28,18 @@ target = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("1_fupj6")]
 position = Vector2(8, 8)
 
-[node name="Node" type="Node" parent="."]
+[node name="ArrowSlits" type="Node" parent="."]
 
-[node name="ArrowSlit" parent="Node" instance=ExtResource("5_bb8hi")]
+[node name="ArrowSlit" parent="ArrowSlits" instance=ExtResource("5_bb8hi")]
 position = Vector2(532, 164)
+
+[node name="GoldCoins" type="Node" parent="."]
+
+[node name="GoldCoin" parent="GoldCoins" instance=ExtResource("5_bw3x4")]
+position = Vector2(83, 120)
+
+[node name="GoldCoin2" parent="GoldCoins" instance=ExtResource("5_bw3x4")]
+position = Vector2(75, 120)
+
+[node name="GoldCoin3" parent="GoldCoins" instance=ExtResource("5_bw3x4")]
+position = Vector2(66, 120)

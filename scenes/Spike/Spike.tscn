@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d108drtlvdam1" path="res://components/HitboxComponent/HitboxComponent.tscn" id="2_74s0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i38bd"]
-size = Vector2(7, 5)
+size = Vector2(7, 3)
 
 [node name="Spike" type="Node2D"]
 
@@ -15,5 +15,5 @@ texture = ExtResource("1_r2076")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
-position = Vector2(0.5, 1.5)
+position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_i38bd")
