@@ -20,6 +20,8 @@ script = ExtResource("1_ynjh7")
 [node name="VelocityComponent" parent="." instance=ExtResource("1_gy152")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_uoskk")]
+health = 7
+maximum_health = 7
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8

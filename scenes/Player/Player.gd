@@ -17,10 +17,11 @@ func _ready():
 	initial_position = global_position
 
 	if health_component:
+		health_component._on_health_changed.connect(_on_health_changed)
 		health_component._on_died.connect(_on_died)
 
 
-func _on_died():
+func _on_health_changed(health: int, maximum_health: int):
 	var skull_instance = SkullScene.instantiate()
 	skull_instance.global_position = global_position
 	skull_instance.initial_velocity = velocity_component.velocity
@@ -29,6 +30,10 @@ func _on_died():
 
 	# Should wait for the player positioning to avoid collisions.
 	get_tree().current_scene.call_deferred("add_child", skull_instance)
+
+
+func _on_died():
+	get_tree().reload_current_scene()
 
 
 func _physics_process(_delta):

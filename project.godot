@@ -39,6 +39,7 @@ stretch=false
 
 [gui]
 
+theme/custom="res://Theme.tres"
 common/drop_mouse_on_gui_input_disabled=true
 
 [importer_defaults]
@@ -100,6 +101,7 @@ common/enable_pause_aware_picking=true
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/anisotropic_filtering_level=0
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=1
 vram_compression/import_etc=true
