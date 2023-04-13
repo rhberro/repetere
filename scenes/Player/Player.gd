@@ -5,6 +5,12 @@ var SkullScene: PackedScene = preload("res://scenes/Skull/Skull.tscn")
 var initial_position: Vector2 = Vector2.ZERO
 
 @onready
+var sprite: Sprite2D = $Sprite2D
+
+@onready
+var animation_tree: AnimationTree = $AnimationTree
+
+@onready
 var velocity_component: VelocityComponent = $VelocityComponent as VelocityComponent
 
 @onready
@@ -23,6 +29,7 @@ func _ready():
 
 func _on_health_changed(health: int, maximum_health: int):
 	var skull_instance = SkullScene.instantiate()
+
 	skull_instance.global_position = global_position
 	skull_instance.initial_velocity = velocity_component.velocity
 
@@ -38,7 +45,7 @@ func _on_died():
 
 func _physics_process(_delta):
 	# Movement
-	var direction = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
+	var direction = Input.get_vector("move_left", "move_right", "", "")
 	if direction:
 		velocity_component.accelerate(direction)
 	else:
@@ -51,13 +58,22 @@ func _physics_process(_delta):
 		velocity_component.velocity.y = gravity_component.apply(velocity_component.velocity, _get_gravity_weight() ).y
 
 	# Jumping
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity_component.velocity.y = velocity_component.velocity.y - 170
+	var jumping = Input.is_action_just_pressed("jump")
+	if is_on_floor():
+		if jumping:
+			velocity_component.velocity.y = velocity_component.velocity.y - 170
 
+	# Apply
 	velocity = velocity_component.velocity
 
+	# Move
 	move_and_slide()
 
+	# Animate
+	_do_animation()
+	
+	# Flip
+	_do_flip()
 
 func _get_gravity_weight():
 	if is_on_floor():
@@ -71,3 +87,14 @@ func _get_gravity_weight():
 			return 2 # Cut
 
 	return 1
+
+
+func _do_animation():
+	animation_tree.set("parameters/blend_position", velocity.normalized() )
+
+
+func _do_flip():
+	if velocity.x < 0:
+		sprite.set_flip_h(true)
+	elif velocity.x > 0:
+		sprite.set_flip_h(false)

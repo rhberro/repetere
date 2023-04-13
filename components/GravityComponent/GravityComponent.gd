@@ -9,6 +9,6 @@ func _ready():
 
 func apply(velocity: Vector2, weight = 1.0):
 	return Vector2(
-		velocity.x,
-		velocity.y + gravity * weight
+		int(velocity.x),
+		int(velocity.y + gravity * weight)
 	)
