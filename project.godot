@@ -39,7 +39,7 @@ stretch=false
 
 [gui]
 
-theme/custom="res://Theme.tres"
+theme/custom="res://theme/Theme.tres"
 common/drop_mouse_on_gui_input_disabled=true
 
 [importer_defaults]

@@ -75,6 +75,10 @@ func _physics_process(_delta):
 	# Flip
 	_do_flip()
 
+	# Debugging
+	if Input.is_action_just_pressed("ui_up"):
+		get_tree().current_scene.get_node("CanvasLayer/DialogBox")._show("This is an example of a text that can appear anywhere and anytime you want.")
+
 func _get_gravity_weight():
 	if is_on_floor():
 		return 0
