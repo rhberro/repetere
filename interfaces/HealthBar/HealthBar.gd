@@ -11,7 +11,7 @@ func _ready():
 		player.health_component._on_health_changed.connect(_on_health_changed)
 
 
-func _on_health_changed(health: int, maximum_health: int):
+func _on_health_changed(health: int, _maximum_health: int):
 	if not container:
 		return
 

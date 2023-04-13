@@ -122,16 +122,19 @@ blend_point_3/node = SubResource("AnimationNodeAnimation_ehh2m")
 blend_point_3/pos = Vector2(0, -1)
 blend_point_4/node = SubResource("AnimationNodeAnimation_u86jt")
 blend_point_4/pos = Vector2(-1, 0)
-snap = Vector2(0.5, 0.5)
+snap = Vector2(0.25, 0.25)
 blend_mode = 1
+sync = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bexd1"]
 size = Vector2(5, 6)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1fasb"]
-radius = 3.5
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46lgh"]
+size = Vector2(7, 6)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_ynjh7")
 
 [node name="GravityComponent" parent="." instance=ExtResource("3_4yi37")]
@@ -163,12 +166,10 @@ collision_layer = 2
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-visible = false
 position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_bexd1")
 debug_color = Color(0.701961, 0, 0.0117647, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0.5, 4.5)
-shape = SubResource("CircleShape2D_1fasb")
+position = Vector2(0.5, 5)
+shape = SubResource("RectangleShape2D_46lgh")

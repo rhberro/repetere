@@ -1,25 +1,44 @@
-[gd_scene load_steps=6 format=3 uid="uid://btmk0i7d5gxn0"]
+[gd_scene load_steps=9 format=3 uid="uid://btmk0i7d5gxn0"]
 
 [ext_resource type="PackedScene" uid="uid://cl4l70y4smatl" path="res://components/GravityComponent/GravityComponent.tscn" id="1_36a2a"]
 [ext_resource type="Script" path="res://scenes/Skull/Skull.gd" id="1_qsfuf"]
 [ext_resource type="PackedScene" uid="uid://bwuxr231sdmkc" path="res://components/VelocityComponent/VelocityComponent.tscn" id="2_rcx2l"]
+[ext_resource type="PackedScene" uid="uid://ckrcn60x4ti4l" path="res://components/HealthComponent/HealthComponent.tscn" id="4_1gclt"]
 [ext_resource type="Texture2D" uid="uid://br1ysww5avqrd" path="res://scenes/Skull/Skull.png" id="4_rmkun"]
+[ext_resource type="PackedScene" uid="uid://gumjnctvy6ov" path="res://components/HurtboxComponent/HurtboxComponent.tscn" id="6_q2oiw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itykc"]
+size = Vector2(5, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67yin"]
 size = Vector2(7, 8)
 
 [node name="Skull" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 11
 script = ExtResource("1_qsfuf")
+
+[node name="GravityComponent" parent="." instance=ExtResource("1_36a2a")]
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_rcx2l")]
 
-[node name="GravityComponent" parent="." instance=ExtResource("1_36a2a")]
+[node name="HealthComponent" parent="." instance=ExtResource("4_1gclt")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_rmkun")
 region_enabled = true
 region_rect = Rect2(2.08165e-12, 2.08165e-12, 8, 8)
 
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_q2oiw")]
+collision_layer = 8
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_itykc")
+debug_color = Color(0.701961, 0, 0.0117647, 0.419608)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_67yin")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxav07fa3miys"]
+[gd_scene load_steps=9 format=3 uid="uid://cxav07fa3miys"]
 
 [ext_resource type="PackedScene" uid="uid://61xgg4lbvejl" path="res://scenes/Player/Player.tscn" id="1_fupj6"]
 [ext_resource type="TileSet" uid="uid://cibeigu46hm5" path="res://Tileset.tres" id="1_pio0b"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://clb50oavbdsoa" path="res://interfaces/HealthBar/HealthBar.tscn" id="4_3n18o"]
 [ext_resource type="PackedScene" uid="uid://bauf786e2cv3n" path="res://scenes/ArrowSlit/ArrowSlit.tscn" id="5_bb8hi"]
 [ext_resource type="PackedScene" uid="uid://bh6iv277qtmao" path="res://scenes/GoldCoin/GoldCoin.tscn" id="5_bw3x4"]
+[ext_resource type="PackedScene" uid="uid://btmk0i7d5gxn0" path="res://scenes/Skull/Skull.tscn" id="7_ao57o"]
+[ext_resource type="PackedScene" uid="uid://bj6iyuohaxhbn" path="res://scenes/Spike/Spike.tscn" id="8_q744o"]
 
 [node name="Level01" type="Node2D"]
 
@@ -27,7 +29,7 @@ layer_1/tile_data = PackedInt32Array(1245205, 131074, 7, 1179669, 131074, 6, 111
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_fupj6")]
-position = Vector2(8, 8)
+position = Vector2(32, 32)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -37,6 +39,10 @@ position = Vector2(8, 8)
 
 [node name="ArrowSlit" parent="ArrowSlits" instance=ExtResource("5_bb8hi")]
 position = Vector2(532, 164)
+
+[node name="ArrowSlit2" parent="ArrowSlits" instance=ExtResource("5_bb8hi")]
+position = Vector2(205, 124)
+rotation = -3.14159
 
 [node name="GoldCoins" type="Node" parent="."]
 
@@ -48,3 +54,15 @@ position = Vector2(75, 120)
 
 [node name="GoldCoin3" parent="GoldCoins" instance=ExtResource("5_bw3x4")]
 position = Vector2(66, 120)
+
+[node name="Skull" parent="." instance=ExtResource("7_ao57o")]
+position = Vector2(133, 112)
+
+[node name="Spike" parent="." instance=ExtResource("8_q744o")]
+position = Vector2(134, 157)
+
+[node name="Spike2" parent="." instance=ExtResource("8_q744o")]
+position = Vector2(142, 157)
+
+[node name="Spike3" parent="." instance=ExtResource("8_q744o")]
+position = Vector2(126, 157)

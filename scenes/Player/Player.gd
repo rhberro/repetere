@@ -27,7 +27,7 @@ func _ready():
 		health_component._on_died.connect(_on_died)
 
 
-func _on_health_changed(health: int, maximum_health: int):
+func _on_health_changed(_health: int, _maximum_health: int):
 	var skull_instance = SkullScene.instantiate()
 
 	skull_instance.global_position = global_position
@@ -45,7 +45,7 @@ func _on_died():
 
 func _physics_process(_delta):
 	# Movement
-	var direction = Input.get_vector("move_left", "move_right", "", "")
+	var direction = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
 	if direction:
 		velocity_component.accelerate(direction)
 	else:
@@ -55,7 +55,7 @@ func _physics_process(_delta):
 	if is_on_floor():
 		velocity_component.velocity.y = 0
 	else:
-		velocity_component.velocity.y = gravity_component.apply(velocity_component.velocity, _get_gravity_weight() ).y
+		velocity_component.velocity = gravity_component.apply(velocity_component.velocity, _get_gravity_weight() )
 
 	# Jumping
 	var jumping = Input.is_action_just_pressed("jump")
