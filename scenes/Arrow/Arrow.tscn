@@ -51,6 +51,7 @@ size = Vector2(8, 1)
 script = ExtResource("1_54owu")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("1_7c33b")]
+speed = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_5v08p")

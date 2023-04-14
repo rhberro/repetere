@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Repetere"
-run/main_scene="res://levels/Level01/Level01.tscn"
+run/main_scene="res://levels/Level00/Level00.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 
 [display]

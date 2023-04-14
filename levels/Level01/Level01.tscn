@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcpcn4kc1h001"]
+[gd_scene load_steps=8 format=3 uid="uid://bcpcn4kc1h001"]
 
 [ext_resource type="PackedScene" uid="uid://61xgg4lbvejl" path="res://scenes/Player/Player.tscn" id="1_fupj6"]
 [ext_resource type="TileSet" uid="uid://cibeigu46hm5" path="res://Tileset.tres" id="1_pio0b"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bauf786e2cv3n" path="res://scenes/ArrowSlit/ArrowSlit.tscn" id="5_bb8hi"]
 [ext_resource type="PackedScene" uid="uid://bh6iv277qtmao" path="res://scenes/GoldCoin/GoldCoin.tscn" id="5_bw3x4"]
 [ext_resource type="PackedScene" uid="uid://b4b40ggws22dk" path="res://interfaces/DialogBox/DialogBox.tscn" id="5_xs0fr"]
-[ext_resource type="PackedScene" uid="uid://bj6iyuohaxhbn" path="res://scenes/Spike/Spike.tscn" id="8_q744o"]
 
 [node name="Level01" type="Node2D"]
 
@@ -52,15 +51,3 @@ position = Vector2(75, 120)
 
 [node name="GoldCoin3" parent="GoldCoins" instance=ExtResource("5_bw3x4")]
 position = Vector2(66, 120)
-
-[node name="Spike" parent="." instance=ExtResource("8_q744o")]
-position = Vector2(134, 157)
-
-[node name="Spike2" parent="." instance=ExtResource("8_q744o")]
-position = Vector2(142, 157)
-
-[node name="Spike3" parent="." instance=ExtResource("8_q744o")]
-position = Vector2(126, 157)
-
-[node name="Spike4" parent="." instance=ExtResource("8_q744o")]
-position = Vector2(150, 157)

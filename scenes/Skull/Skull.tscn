@@ -23,6 +23,8 @@ script = ExtResource("1_qsfuf")
 [node name="VelocityComponent" parent="." instance=ExtResource("2_rcx2l")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_1gclt")]
+health = 3
+maximum_health = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_rmkun")

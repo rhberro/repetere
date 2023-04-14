@@ -1,8 +1,13 @@
 class_name Player extends CharacterBody2D
 
-var SkullScene: PackedScene = preload("res://scenes/Skull/Skull.tscn")
+@onready
+var gravity_component: GravityComponent = $GravityComponent as GravityComponent
 
-var initial_position: Vector2 = Vector2.ZERO
+@onready
+var velocity_component: VelocityComponent = $VelocityComponent as VelocityComponent
+
+@onready
+var health_component: HealthComponent = $HealthComponent as HealthComponent
 
 @onready
 var sprite: Sprite2D = $Sprite2D
@@ -10,14 +15,9 @@ var sprite: Sprite2D = $Sprite2D
 @onready
 var animation_tree: AnimationTree = $AnimationTree
 
-@onready
-var velocity_component: VelocityComponent = $VelocityComponent as VelocityComponent
+var SkullScene: PackedScene = preload("res://scenes/Skull/Skull.tscn")
 
-@onready
-var gravity_component: GravityComponent = $GravityComponent as GravityComponent
-
-@onready
-var health_component: HealthComponent = $HealthComponent as HealthComponent
+var initial_position: Vector2 = Vector2.ZERO
 
 func _ready():
 	initial_position = global_position
@@ -77,7 +77,7 @@ func _physics_process(_delta):
 
 	# Debugging
 	if Input.is_action_just_pressed("ui_up"):
-		get_tree().current_scene.get_node("CanvasLayer/DialogBox")._show("This is an example of a text that can appear anywhere and anytime you want.")
+		get_tree().current_scene.get_node("CanvasLayer/DialogBox").display("This is an example of a text that can appear anywhere and anytime you want.")
 
 func _get_gravity_weight():
 	if is_on_floor():
