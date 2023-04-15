@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 @export
 var delay: float = 0.0
@@ -6,13 +6,13 @@ var delay: float = 0.0
 @export
 var wait_time: float = 4.0
 
-var ArrowScene: PackedScene	= preload("res://scenes/Arrow/Arrow.tscn")
-
 @onready
 var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready
 var timer: Timer = $Timer
+
+var ArrowScene: PackedScene	= preload("res://scenes/Arrow/Arrow.tscn")
 
 func _ready():
 	timer.timeout.connect(_on_timer_timeout)

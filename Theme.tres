@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://c3j3uimig8cfs"]
 
-[ext_resource type="FontFile" uid="uid://do63437v0svrp" path="res://assets/fonts/QuinqueFive_Font_1_1/QuinqueFive.woff2" id="1_rltvx"]
+[ext_resource type="FontFile" uid="uid://cg0iebejuwpaq" path="res://assets/fonts/QuinqueFive_Font_1_1/QuinqueFive.ttf" id="1_8kjqg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvb0t"]
 bg_color = Color(0.764706, 0.862745, 0.898039, 1)
@@ -21,7 +21,7 @@ bg_color = Color(0.0666667, 0.0470588, 0.133333, 1)
 bg_color = Color(0.0666667, 0.0470588, 0.133333, 1)
 
 [resource]
-default_font = ExtResource("1_rltvx")
+default_font = ExtResource("1_8kjqg")
 default_font_size = 5
 Button/colors/font_color = Color(0.764706, 0.862745, 0.898039, 1)
 Button/colors/font_focus_color = Color(0.0666667, 0.0470588, 0.133333, 1)
@@ -34,6 +34,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_64rhs")
 Button/styles/normal = SubResource("StyleBoxFlat_m6wh3")
 Button/styles/pressed = SubResource("StyleBoxFlat_mfxrv")
 HBoxContainer/constants/separation = 0
+Label/colors/font_color = Color(0.764706, 0.862745, 0.898039, 1)
 Label/constants/line_spacing = 0
 MarginContainer/constants/margin_bottom = 4
 MarginContainer/constants/margin_left = 4

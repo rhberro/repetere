@@ -14,12 +14,16 @@ config/name="Repetere"
 run/main_scene="res://levels/Title/Title.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 
+[autoload]
+
+SceneTransition="*res://scenes/SceneTransition/SceneTransition.tscn"
+
 [display]
 
 window/size/viewport_width=240
 window/size/viewport_height=180
-window/size/window_width_override=720
-window/size/window_height_override=540
+window/size/window_width_override=960
+window/size/window_height_override=720
 window/stretch/mode="viewport"
 
 [editor]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bauf786e2cv3n"]
+[gd_scene load_steps=7 format=3 uid="uid://bauf786e2cv3n"]
 
 [ext_resource type="Texture2D" uid="uid://dnnqk5x5co2xd" path="res://scenes/ArrowSlit/ArrowSlit.png" id="1_4kf8c"]
 [ext_resource type="Script" path="res://scenes/ArrowSlit/ArrowSlit.gd" id="1_jrcko"]
@@ -39,8 +39,12 @@ _data = {
 "RESET": SubResource("Animation_pp5sp")
 }
 
-[node name="ArrowSlit" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4fay"]
+size = Vector2(8, 8)
+
+[node name="ArrowSlit" type="StaticBody2D"]
 modulate = Color(0.764706, 0.862745, 0.898039, 1)
+collision_mask = 0
 script = ExtResource("1_jrcko")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -52,5 +56,8 @@ region_rect = Rect2(2.08165e-12, 2.08165e-12, 8, 8)
 libraries = {
 "": SubResource("AnimationLibrary_iyf1g")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c4fay")
 
 [node name="Timer" type="Timer" parent="."]

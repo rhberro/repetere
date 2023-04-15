@@ -15,7 +15,7 @@ func _ready():
 
 
 func _on_press_play():
-	get_tree().change_scene_to_file("res://levels/Level00/Level00.tscn")
+	SceneTransition.change_scene_to_file("res://levels/Level00/Level00.tscn")
 
 
 func _on_press_leave():
