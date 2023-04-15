@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cv1h15e671l60"
-path="res://.godot/imported/Kenney Rocket.ttf-8dc5cac7a6f91020e0d83ed8df22abce.fontdata"
+uid="uid://bj18alfvytvpm"
+path="res://.godot/imported/QuinqueFive.woff-da7c163378160e23068ab3a19fed96bd.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/kenney_kenney-fonts/Fonts/Kenney Rocket.ttf"
-dest_files=["res://.godot/imported/Kenney Rocket.ttf-8dc5cac7a6f91020e0d83ed8df22abce.fontdata"]
+source_file="res://assets/fonts/QuinqueFive_Font_1_1/QuinqueFive.woff"
+dest_files=["res://.godot/imported/QuinqueFive.woff-da7c163378160e23068ab3a19fed96bd.fontdata"]
 
 [params]
 

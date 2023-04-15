@@ -51,7 +51,7 @@ func display(message: String):
 
 func _on_show(_animation_name: StringName):
 	timer.timeout.connect(_on_timeout)
-	timer.wait_time = 0.05
+	timer.wait_time = 0.03
 	timer.start()
 
 

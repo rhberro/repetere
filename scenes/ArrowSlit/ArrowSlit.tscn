@@ -40,6 +40,7 @@ _data = {
 }
 
 [node name="ArrowSlit" type="Node2D"]
+modulate = Color(0.764706, 0.862745, 0.898039, 1)
 script = ExtResource("1_jrcko")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
