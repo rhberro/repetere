@@ -1,10 +1,10 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cibeigu46hm5"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cewlxkry6ciqh"]
 
-[ext_resource type="Texture2D" uid="uid://gg367uk7j3r5" path="res://assets/tileset.png" id="1_5tkur"]
+[ext_resource type="Texture2D" uid="uid://gg367uk7j3r5" path="res://assets/tiles.png" id="1_4xedi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_omcr4"]
 resource_name = "Foreground"
-texture = ExtResource("1_5tkur")
+texture = ExtResource("1_4xedi")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -1341,7 +1341,7 @@ texture_region_size = Vector2i(8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0clwt"]
 resource_name = "Background"
-texture = ExtResource("1_5tkur")
+texture = ExtResource("1_4xedi")
 texture_region_size = Vector2i(8, 8)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)

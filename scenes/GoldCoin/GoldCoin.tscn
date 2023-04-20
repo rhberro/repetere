@@ -45,7 +45,7 @@ _data = {
 size = Vector2(4, 4)
 
 [node name="GoldCoin" type="Area2D"]
-modulate = Color(0.764706, 0.862745, 0.898039, 1)
+modulate = Color(0.894118, 0.909804, 0.819608, 1)
 collision_layer = 16
 collision_mask = 2
 script = ExtResource("1_ixnmk")

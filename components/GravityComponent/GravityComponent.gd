@@ -1,7 +1,7 @@
 class_name GravityComponent extends Node
 
 @export
-var gravity: float = 15.0
+var gravity: float = 10.0
 
 func _ready():
 	set_process(false)

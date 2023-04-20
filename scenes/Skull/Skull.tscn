@@ -14,7 +14,7 @@ size = Vector2(5, 7)
 size = Vector2(7, 8)
 
 [node name="Skull" type="StaticBody2D"]
-modulate = Color(0.764706, 0.862745, 0.898039, 1)
+modulate = Color(0.894118, 0.909804, 0.819608, 1)
 collision_layer = 8
 collision_mask = 11
 script = ExtResource("1_qsfuf")

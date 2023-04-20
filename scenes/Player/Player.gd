@@ -61,7 +61,7 @@ func _physics_process(_delta):
 	var jumping = Input.is_action_just_pressed("jump")
 	if is_on_floor():
 		if jumping:
-			velocity_component.velocity.y = velocity_component.velocity.y - 170
+			velocity_component.velocity.y = velocity_component.velocity.y - 125
 
 	# Apply
 	velocity = velocity_component.velocity
@@ -70,10 +70,10 @@ func _physics_process(_delta):
 	move_and_slide()
 
 	# Animate
-	_do_animation()
+	animate()
 	
 	# Flip
-	_do_flip()
+	flip()
 
 	# Debugging
 	if Input.is_action_just_pressed("ui_up"):
@@ -85,19 +85,19 @@ func _get_gravity_weight():
 
 	if Input.is_action_pressed("jump"): # Jumping
 		if velocity.y < 0: # Going Up:
-			return 0.40
-	else:
-		if velocity.y < 0: # Going Up:
-			return 2 # Cut
+			return 0.50
+
+	if velocity.y < 0: # Going Up:
+		return 1.5 # Cut
 
 	return 1
 
 
-func _do_animation():
+func animate():
 	animation_tree.set("parameters/blend_position", velocity.normalized() )
 
 
-func _do_flip():
+func flip():
 	if velocity.x < 0:
 		sprite.set_flip_h(true)
 	elif velocity.x > 0:

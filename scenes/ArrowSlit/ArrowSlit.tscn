@@ -43,7 +43,7 @@ _data = {
 size = Vector2(8, 8)
 
 [node name="ArrowSlit" type="StaticBody2D"]
-modulate = Color(0.764706, 0.862745, 0.898039, 1)
+modulate = Color(0.894118, 0.909804, 0.819608, 1)
 collision_mask = 0
 script = ExtResource("1_jrcko")
 

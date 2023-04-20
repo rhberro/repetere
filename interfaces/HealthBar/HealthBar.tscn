@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://clb50oavbdsoa"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Texture2D" uid="uid://bwqtee8scsdxq" path="res://assets/Heart.png" id="1_6ugdv"]
+[ext_resource type="Texture2D" uid="uid://bwqtee8scsdxq" path="res://interfaces/HealthBar/Heart.png" id="1_6ugdv"]
 [ext_resource type="Script" path="res://interfaces/HealthBar/HealthBar.gd" id="1_fgaet"]
 
 [node name="HealthBar" type="Control"]
-modulate = Color(0.764706, 0.862745, 0.898039, 1)
+modulate = Color(0.894118, 0.909804, 0.819608, 1)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

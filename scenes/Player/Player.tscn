@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://61xgg4lbvejl"]
+[gd_scene load_steps=21 format=3 uid="uid://61xgg4lbvejl"]
 
 [ext_resource type="PackedScene" uid="uid://bwuxr231sdmkc" path="res://components/VelocityComponent/VelocityComponent.tscn" id="1_gy152"]
 [ext_resource type="Script" path="res://scenes/Player/Player.gd" id="1_ynjh7"]
@@ -132,12 +132,8 @@ size = Vector2(5, 6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46lgh"]
 size = Vector2(7, 6)
 
-[sub_resource type="Gradient" id="Gradient_h22a1"]
-interpolation_mode = 2
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-modulate = Color(0.764706, 0.862745, 0.898039, 1)
+modulate = Color(0.894118, 0.909804, 0.819608, 1)
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_ynjh7")
@@ -178,37 +174,3 @@ debug_color = Color(0.701961, 0, 0.0117647, 0.419608)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 5)
 shape = SubResource("RectangleShape2D_46lgh")
-
-[node name="Node" type="Node" parent="."]
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Node"]
-position = Vector2(2, 8)
-emitting = false
-amount = 4
-lifetime = 0.5
-one_shot = true
-explosiveness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(2, 2.08165e-12)
-direction = Vector2(5, 2.08165e-12)
-spread = 0.0
-gravity = Vector2(5, -5)
-initial_velocity_min = 2.0
-initial_velocity_max = 4.0
-color_ramp = SubResource("Gradient_h22a1")
-
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="Node"]
-position = Vector2(-2, 8)
-emitting = false
-amount = 4
-lifetime = 0.5
-one_shot = true
-explosiveness = 1.0
-emission_shape = 3
-emission_rect_extents = Vector2(2, 2.08165e-12)
-direction = Vector2(-5, 2.08165e-12)
-spread = 0.0
-gravity = Vector2(-5, -5)
-initial_velocity_min = 2.0
-initial_velocity_max = 4.0
-color_ramp = SubResource("Gradient_h22a1")

@@ -88,9 +88,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/Panel/MarginContainer/HBoxContainer"]
-modulate = Color(0.764706, 0.862745, 0.898039, 1)
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+color = Color(0.894118, 0.909804, 0.819608, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -102,7 +102,6 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
-modulate = Color(0.764706, 0.862745, 0.898039, 1)
 layout_mode = 2
 text = "Example of text!"
 autowrap_mode = 2
