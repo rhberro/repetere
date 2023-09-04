@@ -11,14 +11,14 @@ signal _on_health_changed(health: int, maximum_health: int)
 signal _on_died()
 
 func _ready():
-	set_process(false)
+  set_process(false)
 
 
 func take_damage(damage: int):
-	# Died
-	if health - damage == 0:
-		_on_died.emit()
+  # Died
+  if health - damage == 0:
+    _on_died.emit()
 
-	health = health - damage
+  health = health - damage
 
-	_on_health_changed.emit(health, maximum_health)
+  _on_health_changed.emit(health, maximum_health)

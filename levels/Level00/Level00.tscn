@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://cewlxkry6ciqh" path="res://Tileset.tres" id="1_4n3a3"]
 [ext_resource type="PackedScene" uid="uid://70fusl8inlpf" path="res://scenes/Camera/Camera.tscn" id="2_rbq76"]
 [ext_resource type="PackedScene" uid="uid://61xgg4lbvejl" path="res://scenes/Player/Player.tscn" id="3_1dikt"]
-[ext_resource type="PackedScene" path="res://interfaces/HealthBar/HealthBar.tscn" id="4_ndbd0"]
+[ext_resource type="PackedScene" uid="uid://c35j0yvrye635" path="res://interfaces/HealthBar/HealthBar.tscn" id="4_ndbd0"]
 [ext_resource type="PackedScene" uid="uid://b4b40ggws22dk" path="res://interfaces/DialogBox/DialogBox.tscn" id="5_sskis"]
 [ext_resource type="PackedScene" uid="uid://bauf786e2cv3n" path="res://scenes/ArrowSlit/ArrowSlit.tscn" id="6_mqh8o"]
 [ext_resource type="PackedScene" uid="uid://bh6iv277qtmao" path="res://scenes/GoldCoin/GoldCoin.tscn" id="7_dmt38"]
@@ -29,10 +29,9 @@ layer_1/tile_data = PackedInt32Array()
 target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_1dikt")]
-position = Vector2(50, 128)
+position = Vector2(17, 120)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource("4_ndbd0")]
 
@@ -41,7 +40,7 @@ visible = false
 [node name="ArrowSlits" type="Node" parent="."]
 
 [node name="ArrowSlit" parent="ArrowSlits" instance=ExtResource("6_mqh8o")]
-position = Vector2(-4, 116)
+position = Vector2(4, 116)
 
 [node name="GoldCoins" type="Node" parent="."]
 

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Repetere"
 run/main_scene="res://levels/Title/Title.tscn"
-config/features=PackedStringArray("4.0", "GL Compatibility")
+config/features=PackedStringArray("4.1", "GL Compatibility")
 
 [autoload]
 
@@ -24,7 +24,7 @@ window/size/viewport_width=240
 window/size/viewport_height=180
 window/size/window_width_override=960
 window/size/window_height_override=720
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [editor]
 
@@ -105,8 +105,8 @@ common/enable_pause_aware_picking=true
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-textures/default_filters/anisotropic_filtering_level=0
 environment/defaults/default_clear_color=Color(0.34902, 0.431373, 0.47451, 1)
+2d/snap/snap_2d_vertices_to_pixel=true
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=1
 vram_compression/import_etc=true

@@ -4,10 +4,10 @@ extends CanvasLayer
 var animation_player: AnimationPlayer = $AnimationPlayer
 
 func change_scene_to_file(file: String):
-	animation_player.play("Enter")
+  animation_player.play("Enter")
 
-	await animation_player.animation_finished
+  await animation_player.animation_finished
 
-	get_tree().change_scene_to_file(file)
-	
-	animation_player.play("Leave")
+  get_tree().change_scene_to_file(file)
+
+  animation_player.play("Leave")

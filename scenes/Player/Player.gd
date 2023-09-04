@@ -20,85 +20,86 @@ var SkullScene: PackedScene = preload("res://scenes/Skull/Skull.tscn")
 var initial_position: Vector2 = Vector2.ZERO
 
 func _ready():
-	initial_position = global_position
+  initial_position = global_position
 
-	if health_component:
-		health_component._on_health_changed.connect(_on_health_changed)
-		health_component._on_died.connect(_on_died)
+  if health_component:
+    health_component._on_health_changed.connect(_on_health_changed)
+    health_component._on_died.connect(_on_died)
 
 
 func _on_health_changed(_health: int, _maximum_health: int):
-	var skull_instance = SkullScene.instantiate()
+  var skull_instance = SkullScene.instantiate()
 
-	skull_instance.global_position = global_position
-	skull_instance.initial_velocity = velocity_component.velocity
+  skull_instance.global_position = global_position
+  skull_instance.initial_velocity = velocity_component.velocity
 
-	global_position = initial_position
+  global_position = initial_position
 
-	# Should wait for the player positioning to avoid collisions.
-	get_tree().current_scene.call_deferred("add_child", skull_instance)
+  # Should wait for the player positioning to avoid collisions.
+  get_tree().current_scene.call_deferred("add_child", skull_instance)
 
 
 func _on_died():
-	get_tree().reload_current_scene()
+  get_tree().reload_current_scene()
 
 
 func _physics_process(_delta):
-	# Movement
-	var direction = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
-	if direction:
-		velocity_component.accelerate(direction)
-	else:
-		velocity_component.decelerate()
+  # Movement
+  var direction = Input.get_vector("move_left", "move_right", "ui_up", "ui_down")
+  if direction:
+    velocity_component.accelerate(direction)
+  else:
+    velocity_component.decelerate()
 
-	# Gravity
-	if is_on_floor():
-		velocity_component.velocity.y = 0
-	else:
-		velocity_component.velocity = gravity_component.apply(velocity_component.velocity, _get_gravity_weight() )
+  # Gravity
+  if is_on_floor():
+    velocity_component.velocity.y = 0
+  else:
+    velocity_component.velocity = gravity_component.apply(velocity_component.velocity, _get_gravity_weight() )
 
-	# Jumping
-	var jumping = Input.is_action_just_pressed("jump")
-	if is_on_floor():
-		if jumping:
-			velocity_component.velocity.y = velocity_component.velocity.y - 125
+  # Jumping
+  var jumping = Input.is_action_just_pressed("jump")
+  if is_on_floor():
+    if jumping:
+      velocity_component.velocity.y = velocity_component.velocity.y - 125
 
-	# Apply
-	velocity = velocity_component.velocity
+  # Apply
+  velocity = velocity_component.velocity
 
-	# Move
-	move_and_slide()
+  # Move
+  move_and_slide()
 
-	# Animate
-	animate()
-	
-	# Flip
-	flip()
+  # Animate
+  animate()
 
-	# Debugging
-	if Input.is_action_just_pressed("ui_up"):
-		get_tree().current_scene.get_node("CanvasLayer/DialogBox").display("This is an example of a text that can appear anywhere and anytime you want.")
+  # Flip
+  flip()
+
+  # Debugging
+  if Input.is_action_just_pressed("ui_up"):
+    get_tree().current_scene.get_node("CanvasLayer/DialogBox").display("This is an example of a text that can appear anywhere and anytime you want.")
+
 
 func _get_gravity_weight():
-	if is_on_floor():
-		return 0
+  if is_on_floor():
+    return 0
 
-	if Input.is_action_pressed("jump"): # Jumping
-		if velocity.y < 0: # Going Up:
-			return 0.50
+  if Input.is_action_pressed("jump"): # Jumping
+    if velocity.y < 0: # Going Up:
+      return 0.50
 
-	if velocity.y < 0: # Going Up:
-		return 1.5 # Cut
+  if velocity.y < 0: # Going Up:
+    return 1.5 # Cut
 
-	return 1
+  return 1
 
 
 func animate():
-	animation_tree.set("parameters/blend_position", velocity.normalized() )
+  animation_tree.set("parameters/blend_position", velocity.normalized() )
 
 
 func flip():
-	if velocity.x < 0:
-		sprite.set_flip_h(true)
-	elif velocity.x > 0:
-		sprite.set_flip_h(false)
+  if velocity.x < 0:
+    sprite.set_flip_h(true)
+  elif velocity.x > 0:
+    sprite.set_flip_h(false)

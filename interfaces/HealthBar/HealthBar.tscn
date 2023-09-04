@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=3 uid="uid://c35j0yvrye635"]
 
 [ext_resource type="Texture2D" uid="uid://bwqtee8scsdxq" path="res://interfaces/HealthBar/Heart.png" id="1_6ugdv"]
 [ext_resource type="Script" path="res://interfaces/HealthBar/HealthBar.gd" id="1_fgaet"]

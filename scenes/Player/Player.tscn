@@ -127,10 +127,10 @@ blend_mode = 1
 sync = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bexd1"]
-size = Vector2(5, 6)
+size = Vector2(6, 6)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_46lgh"]
-size = Vector2(7, 6)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfcn4"]
+size = Vector2(8, 6)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 modulate = Color(0.894118, 0.909804, 0.819608, 1)
@@ -160,17 +160,17 @@ libraries = {
 tree_root = SubResource("AnimationNodeBlendSpace2D_xh8fw")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/blend_position = Vector2(2.08165e-12, 2.08165e-12)
+parameters/blend_position = Vector2(-0.383394, -0.0305676)
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_0djyq")]
 collision_layer = 2
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(0.5, 5)
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_bexd1")
 debug_color = Color(0.701961, 0, 0.0117647, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 5)
-shape = SubResource("RectangleShape2D_46lgh")
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_cfcn4")
